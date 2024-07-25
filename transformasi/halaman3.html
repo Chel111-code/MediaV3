@@ -356,7 +356,138 @@
       </div>
     </footer>
     <!-- Akhir Footer -->
+    <script>
+      const canvas = document.getElementById('interactiveGridCanvas');
+      const context = canvas.getContext('2d');
+      const gridSpacing = 25;
 
-    <script src="../script/transformasi.js"></script>
+      let pointB = { x: 50, y: 50, label: 'A' };
+      let activePoint = null;
+
+      // Function to draw the grid
+      function drawGrid() {
+        context.strokeStyle = '#ddd';
+        for (let x = 0; x <= canvas.width; x += gridSpacing) {
+          context.beginPath();
+          context.moveTo(x, 0);
+          context.lineTo(x, canvas.height);
+          context.stroke();
+        }
+        for (let y = 0; y <= canvas.height; y += gridSpacing) {
+          context.beginPath();
+          context.moveTo(0, y);
+          context.lineTo(canvas.width, y);
+          context.stroke();
+        }
+      }
+
+      // Function to draw the point
+      function renderPoint(point) {
+        context.font = 'bold 13px Arial'; // Set the font size to make it larger
+        context.beginPath();
+        context.arc(point.x, point.y, 5, 0, 2 * Math.PI);
+        context.fillStyle = '#2AC32A';
+        context.fill();
+        context.fillText(point.label, point.x + 3, point.y - 7); // Adjust the label position
+        context.stroke();
+      }
+
+      // Function to clear the canvas and redraw everything
+      function renderScene() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        drawGrid();
+        renderPoint(pointB);
+      }
+
+      // Utility function to get mouse position relative to canvas
+      function getMousePosition(canvas, event) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+          x: event.clientX - rect.left,
+          y: event.clientY - rect.top,
+        };
+      }
+
+      // Snap point to the nearest grid intersection
+      function snapToGrid(point) {
+        return {
+          x: Math.round(point.x / gridSpacing) * gridSpacing,
+          y: Math.round(point.y / gridSpacing) * gridSpacing,
+        };
+      }
+
+      // Function to create and show the div with id 'titikBayangan'
+      function showTitikBayangan() {
+        const div = document.getElementById('titikBayangan');
+        // Menampilkan elemen
+        div.style.display = 'block';
+
+        setTimeout(function () {
+          const cobaPersegiABCD = document.getElementById('cobaPersegiABCD');
+          cobaPersegiABCD.classList.remove('hidden');
+          cobaPersegiABCD.classList.add('zoomIn');
+          cobaPersegiABCD.scrollIntoView({ behavior: 'smooth' });
+        }, 1000);
+      }
+
+      // Event listeners for drag and drop functionality
+      canvas.addEventListener('mousedown', (e) => {
+        const mousePosition = getMousePosition(canvas, e);
+        if (Math.sqrt((mousePosition.x - pointB.x) ** 2 + (mousePosition.y - pointB.y) ** 2) < 10) {
+          activePoint = pointB;
+        }
+      });
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (activePoint) {
+          const mousePosition = getMousePosition(canvas, e);
+          activePoint.x = mousePosition.x;
+          activePoint.y = mousePosition.y;
+          renderScene();
+        }
+      });
+
+      canvas.addEventListener('mouseup', () => {
+        if (activePoint) {
+          const snappedPosition = snapToGrid(activePoint);
+          activePoint.x = snappedPosition.x;
+          activePoint.y = snappedPosition.y;
+          activePoint.label = "A'";
+          activePoint = null;
+          renderScene();
+          showTitikBayangan(); // Call the function to show the div
+        }
+      });
+
+      // Event listeners for touch events
+      canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousedown', {
+          clientX: touch.clientX,
+          clientY: touch.clientY,
+        });
+        canvas.dispatchEvent(mouseEvent);
+      });
+
+      canvas.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousemove', {
+          clientX: touch.clientX,
+          clientY: touch.clientY,
+        });
+        canvas.dispatchEvent(mouseEvent);
+      });
+
+      canvas.addEventListener('touchend', (e) => {
+        const mouseEvent = new MouseEvent('mouseup', {});
+        canvas.dispatchEvent(mouseEvent);
+      });
+
+      // Initial drawing
+      renderScene();
+    </script>
+    <script src="../script/transformasi.js" defer></script>
   </body>
 </html>
