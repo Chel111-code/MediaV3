@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../src/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../keyframes/transformasi.css" />
+    <style>
+      @font-face {
+        font-family: 'Lato';
+        src: url('../font/Lato-Regular.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Poppins';
+        src: url('../font/Poppins-Regular.ttf') format('truetype');
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#eff7f6] bg-opacity-75 overflow-x-hidden font-poppins text-[13px] text-secondary font-medium md:text-[14px]"
+  >
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-[#eff7f6]" id="navbar">
+      <div
+        class="container bg-opacity-90 mx-auto flex flex-wrap py-3 px-5 items-center justify-between border-[#D1EBE8] md:justify-center md:px-10"
+      >
+        <div>
+          <a
+            href="../index.html"
+            class="flex font-bold justify-center mx-auto items-center text-primary tras"
+            id="judul"
+          >
+            <img src="../img/logo.png" class="w-10" alt="" />
+            <span
+              class="ml-3 text-base font-extrabold relative font-lato tracking-wide text-hijauMuda"
+              >Transformasi Geometri</span
+            >
+          </a>
+        </div>
+
+        <div class="flex items-center">
+          <div class="md:hidden">
+            <button class="mt-1 mr-2" id="sidebarToggle" onclick="toggleNavbar()">
+              <svg
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 18.9583H6.25V16.0416H3.75V18.9583ZM3.75 24.7916H6.25V21.875H3.75V24.7916ZM3.75 13.125H6.25V10.2083H3.75V13.125ZM8.75 18.9583H26.25V16.0416H8.75V18.9583ZM8.75 24.7916H26.25V21.875H8.75V24.7916ZM8.75 10.2083V13.125H26.25V10.2083H8.75Z"
+                  fill="#2AC32A"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Notifikasi -->
+    <audio id="myAudio" class="hidden">
+      <source src="../img/salah.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="myAudio2" class="hidden">
+      <source src="../img/benar.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="myAudio3" class="hidden">
+      <source src="../img/warning-sound-6686.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <div
+      id="notif"
+      class="fixed inset-0 bg-gray-100 z-50 hidden bg-opacity-50 flex items-center justify-center"
+    >
+      <div class="w-[280px] bg-[#FDFD97] mt-16 mx-auto p-3 rounded-lg shadow-lg relative">
+        <div
+          class="bg-[#FBFDFE] border-[1px] text-[13px] py-6 px-[20px] leading-6 text-center shadow-inner text-primary font-bold rounded-lg"
+        >
+          Kamu harus menyelesaikan halaman ini dulu!
+        </div>
+        <img src="../img/info.png" class="absolute w-[70px] -top-6 -left-6" alt="" />
+      </div>
+    </div>
+
+    <!-- Akhir Notifikasi -->
+
+    <!-- Daftar Materi -->
+    <div
+      class="w-[290px] fixed z-50 top-20 right-6 translate-x-96 md:hidden transition duration-300 ease-in-out opacity-95 bg-[#b8f2e6] px-7 py-10 rounded-lg"
+      id="daftarTransformasi"
+    >
+      <h2 class="text-base font-semibold">Transformasi</h2>
+      <div class="w-full flex justify-between items-center bg-white py-3 px-4 rounded-md mt-4">
+        <div>Apa itu Transformasi?</div>
+        <div class="w-3 h-3 rounded-full bg-hijauMuda"></div>
+      </div>
+      <div class="w-full flex justify-between items-center bg-white py-3 px-4 rounded-md mt-3">
+        <div>
+          Pengertian Transformasi <br />
+          Geometri
+        </div>
+        <div class="w-3 h-3 rounded-full bg-hijauMuda"></div>
+      </div>
+      <div
+        class="w-full flex justify-between items-center bg-secondary bg-opacity-60 text-white py-3 px-4 rounded-md mt-3"
+      >
+        <div>
+          Objek Setelah <br />
+          Bertransformasi
+        </div>
+        <div class="w-3 h-3 rounded-full border-2 hidden"></div>
+      </div>
+      <div class="w-full flex justify-between items-center bg-white py-3 px-4 rounded-md mt-3">
+        <div>Tes Pemahaman</div>
+        <div class="w-3 h-3 rounded-full border-2"></div>
+      </div>
+    </div>
+    <!-- Akhir Daftar Materi -->
+
+    <!-- Isi -->
+    <div class="container w-full mt-[120px] md:mt-36">
+      <div class="mx-auto w-full px-5 flex justify-center gap-20 pb-52">
+        <div
+          class="w-[290px] sticky top-32 h-[380px] bg-[#b8f2e6] px-7 py-10 rounded-lg hidden md:block"
+          id="daftarBesar"
+        >
+          <h2 class="text-base font-semibold">Transformasi</h2>
+          <div class="w-full flex justify-between items-center bg-white py-3 px-4 rounded-md mt-4">
+            <div>Apa itu Transformasi?</div>
+            <div class="w-3 h-3 rounded-full bg-hijauMuda"></div>
+          </div>
+          <div class="w-full flex justify-between items-center bg-white py-3 px-4 rounded-md mt-3">
+            <div>
+              Pengertian Transformasi <br />
+              Geometri
+            </div>
+            <div class="w-3 h-3 rounded-full bg-hijauMuda"></div>
+          </div>
+          <div
+            class="w-full flex justify-between items-center bg-secondary bg-opacity-60 text-white py-3 px-4 rounded-md mt-3"
+          >
+            <div>
+              Objek Setelah <br />
+              Bertransformasi
+            </div>
+            <div class="w-3 h-3 rounded-full border-2 hidden"></div>
+          </div>
+          <div class="w-full flex justify-between items-center bg-white py-3 px-4 rounded-md mt-3">
+            <div>Tes Pemahaman</div>
+            <div class="w-3 h-3 rounded-full border-2"></div>
+          </div>
+        </div>
+        <div class="max-w-2xl -mt-4 md:-mt-8" id="isiTransformasi">
+          <div class="text-primary font-semibold text-base">Objek Setelah Bertransformasi</div>
+          <div
+            class="mt-4 border-4 border-[#D1EBE8] leading-6 pb-6 rounded-lg py-4 px-5 text-justify md:py-5 md:px-8 md:leading-7"
+          >
+            <div>
+              Kita akan mencoba melakukan transformasi pada titik. Kali ini kita ingin mengubah
+              poisisi dari titik A dibawah.
+              <span class="md:inline hidden"
+                >Coba kamu ubah posisi titik A kemana saja asal tetap ada di dalam kotak.
+                <span class="text-hijauMuda"
+                  >(Tekan dan tahan titik, lalu geser ketempat yang kamu mau)</span
+                ></span
+              >
+            </div>
+            <div class="mt-4 md:hidden">
+              Coba kamu ubah posisi kemana saja asal tetap ada di dalam kotak.
+              <span class="text-hijauMuda"
+                >(Tekan dan tahan titik, lalu geser ketempat yang kamu mau)</span
+              >
+            </div>
+            <div class="w-[220px] h-[220px] p-4 rounded-lg bg-[#DAFFEF] mx-auto mt-4 relative">
+              <canvas
+                class="bg-white absolute z"
+                width="188"
+                height="188"
+                id="interactiveGridCanvas"
+              ></canvas>
+              <div
+                id="titikBayangan"
+                class="w-[9px] h-[9px] hidden rounded-full absolute z-50 top-[61px] left-[61px] bg-gray-300"
+              >
+                <div class="text-[13px] absolute -top-[18px] left-2 font-bold text-gray-300">A</div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="cobaPersegiABCD"
+            class="mt-4 border-4 border-[#D1EBE8] hidden leading-6 pb-6 rounded-lg py-4 px-5 text-justify md:py-5 md:px-8 md:leading-7"
+          >
+            <div>
+              Coba perhatikan apa yang berbeda dari titik A sebelum dan sesudah ditransformasi.
+              <span class="md:inline hidden"
+                >Jika kamu belum menemukan perbedaannya, perhatikan persegi ABCD dibawah diubah
+                ukurannya!</span
+              >
+            </div>
+            <div class="mt-2 md:hidden">
+              Jika kamu belum menemukan perbedaannya, perhatikan persegi ABCD dibawah diubah
+              ukurannya!
+            </div>
+            <div class="flex w-[250px] mt-6 mx-auto items-start">
+              <img
+                src="../img/play.png"
+                class="w-8 h-8 cursor-pointer hover:scale-110"
+                alt=""
+                onclick="playImg3()"
+                id="playImg3"
+              />
+              <div class="w-[190px] h-[190px] p-4 rounded-lg bg-[#DAFFEF] mx-auto relative">
+                <img src="../img/Grid6.jpeg" class="w-full h-full" alt="" />
+                <div
+                  id="persegikeABCD"
+                  class="w-[54px] h-[53px] text-[12px] text-hijau bg-hijauMuda opacity-60 absolute top-[41px] left-[42px]"
+                >
+                  <div class="absolute -top-4 -left-3">A</div>
+                  <div class="absolute -top-4 -right-3">B</div>
+                  <div class="absolute -bottom-4 -left-3">C</div>
+                  <div class="absolute -bottom-4 -right-3">D</div>
+                </div>
+                <div
+                  id="persegiABCD"
+                  class="w-[54px] h-[53px] text-[12px] hidden font-bold persegiABCD text-hijau bg-hijauMuda opacity-60 absolute top-[41px] left-[42px]"
+                >
+                  <div class="absolute -top-4 -left-3 opacity-0 zoomIn2">A'</div>
+                  <div class="absolute -top-4 -right-3 opacity-0 zoomIn2">B'</div>
+                  <div class="absolute -bottom-4 -left-3 opacity-0 zoomIn2">C'</div>
+                  <div class="absolute -bottom-4 -right-3 opacity-0 zoomIn2">D'</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="bedanya"
+            class="mt-4 border-4 relative hidden border-[#D1EBE8] pb-7 leading-6 rounded-lg py-4 px-5 text-justify md:py-5 md:px-8 md:leading-7"
+          >
+            <div>
+              Apakah kamu sudah sadar bahwa nama atau label persegi ABCD menjadi A’B’C’D’ dan
+              persegi EFGH menjadi E’F’G’H’ setelah ditransformasi?
+            </div>
+          </div>
+          <div
+            id="nanyaBedanya"
+            class="mt-4 border-4 hidden relative border-[#D1EBE8] pb-7 leading-6 rounded-lg py-4 px-5 text-justify md:py-5 md:px-8 md:leading-7"
+          >
+            <div>
+              Jadi untuk membedakan objek sebelum dan setelah bertransformasi adalah dengan
+              memperhatikan....
+            </div>
+            <div class="mt-3 ml-8 text-[13px] md:ml-20" id="jadiBedanya">
+              <div class="flex gap-2 cursor-pointer" onclick="posisinya()" id="posisinya">
+                <div
+                  class="w-8 h-8 border-coklat border-2 flex items-center justify-center rounded-sm"
+                >
+                  A
+                </div>
+                <div class="w-32 h-8 flex items-center rounded-sm bg-[#9CEAEF] px-4 text-primary">
+                  Posisinya
+                </div>
+              </div>
+
+              <div class="flex gap-2 mt-3 cursor-pointer" onclick="labelnya()" id="labelnya">
+                <div
+                  class="w-8 h-8 border-coklat border-2 flex items-center justify-center rounded-sm"
+                >
+                  B
+                </div>
+                <div class="w-32 h-8 flex items-center rounded-sm bg-[#9CEAEF] px-4 text-primary">
+                  Labelnya
+                </div>
+              </div>
+
+              <div class="flex gap-2 mt-3 cursor-pointer" onclick="ukurannya()" id="ukurannya">
+                <div
+                  class="w-8 h-8 border-coklat border-2 flex items-center justify-center rounded-sm"
+                >
+                  C
+                </div>
+                <div class="w-32 h-8 flex items-center rounded-sm bg-[#9CEAEF] px-4 text-primary">
+                  Ukurannya
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-2 ml-6 md:ml-20 mt-5 items-center hidden" id="labelBenar">
+              <div class="w-12 h-12 flex items-center justify-center rounded-sm">
+                <img src="../img/pencerminan/Benar.png" alt="" />
+              </div>
+              <div class="w-32 h-8 flex items-center rounded-sm bg-[#9CEAEF] px-4 text-primary">
+                Labelnya
+              </div>
+            </div>
+            <div
+              class="flex absolute top-24 left-16 hidden opacity-0 z-50 items-center justify-center"
+              id="salah"
+            >
+              <img src="../img/pencerminan/ihi.png" class="w-32" alt="" />
+            </div>
+            <div
+              class="flex absolute top-24 left-16 hidden z-50 items-center justify-center"
+              id="benar"
+            >
+              <img src="../img/pencerminan/Benar.png" class="w-32" alt="" />
+            </div>
+          </div>
+
+          <div
+            id="kesimpulanBedanya"
+            class="text-primary hidden font-semibold leading-7 mt-8 font- text-[14px] text-justify"
+          >
+            Kesimpulan:
+            <span class="text-secondary font-medium"
+              >Label objek setelah bertransformasi akan memiliki tanda aksen (')
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Akhir Isi -->
+
+    <!-- Footer -->
+    <footer
+      class="fixed bottom-0 border-t-2 border-[#D1EBE8] w-full z-50 bg-[#eff7f6] text-[13px]"
+      id="footer"
+    >
+      <div
+        class="container bg-opacity-75 max-w-7xl mx-auto flex flex-wrap md:px-0 py-5 px-5 items-center justify-between"
+      >
+        <div class="flex">
+          <div class="md:" id="tombolBefore">
+            <a href="">
+              <div class="font-semibold"><span class="mr-2"><</span>Sebelumnya</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="relative" id="tombolNext">
+            <a class="cursor-not-allowed" id="cNext">
+              <div class="font-semibold">Selanjutnya <span class="ml-2">></span></div>
+            </a>
+            <img
+              src="img/tunjuk.png"
+              class="w-10 -z-10 -top-4 hidden absolute animate-pulse rotate-180"
+              alt=""
+              id="tunjukNext"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="../script/transformasi.js"></script>
+  </body>
+</html>

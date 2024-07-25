@@ -1,0 +1,169 @@
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation: zoomIn 0.5s linear;
+}
+
+.zoomIn2 {
+  animation: zoomIn 0.5s forwards;
+  animation-delay: 4s;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.zoomOut {
+  animation: zoomOut 1s linear;
+}
+
+.satu {
+  animation: meta 5s ease-in-out forwards;
+}
+.dua {
+  animation: leleh 3s ease-in-out;
+  animation-delay: 3s;
+}
+.tiga {
+  animation: muncul 1s ease-in-out forwards;
+  animation-delay: 6s;
+}
+
+@keyframes meta {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes leleh {
+  50% {
+    opacity: 1;
+    height: 110px;
+    transform-origin: bottom;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 0;
+    height: 10px;
+    transform-origin: bottom;
+    transform: translateY(80px);
+  }
+}
+
+@keyframes muncul {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes contohTransGeo {
+  100% {
+    transform: scale(1.4) translateX(40px) translateY(-8px);
+  }
+}
+
+.contohTransGeo {
+  animation: contohTransGeo 3s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes persegiABCD {
+  100% {
+    transform: rotate(360deg) translateX(79px) translateY(79px);
+    transform-origin: bottom right;
+  }
+}
+
+.persegiABCD {
+  animation: persegiABCD 3s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes moveAndRotate {
+  0% {
+    transform: rotate(0deg) translate(0);
+  }
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(141px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes moveAndRotate1 {
+  0% {
+    transform: rotate(0deg) translate(0);
+  }
+  85% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(141px) rotateY(180deg);
+    opacity: 1;
+  }
+}
+
+.animasi_cermin_tes {
+  animation: moveAndRotate 3s linear forwards;
+  animation-delay: 0s;
+}
+
+.animasi_cermin_tes2 {
+  animation: moveAndRotate1 3s linear forwards;
+  animation-delay: 0s;
+}
+
+.muncului {
+  animation: muncului 3s linear forwards;
+  animation-delay: 0s;
+}
+
+@keyframes muncului {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(141px);
+  }
+}
