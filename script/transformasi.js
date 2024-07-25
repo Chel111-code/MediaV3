@@ -1,3 +1,18 @@
+const cakapSatu = document.getElementById('cakapSatu');
+const cakapDua = document.getElementById('cakapDua');
+const cakapTiga = document.getElementById('cakapTiga');
+const cakapEmpat = document.getElementById('cakapEmpat');
+const cakapLima = document.getElementById('cakapLima');
+const cakapEnam = document.getElementById('cakapEnam');
+const daftarBesar = document.getElementById('daftarBesar');
+const sidebarToggle = document.getElementById('sidebarToggle');
+const isiTransformasi = document.getElementById('isiTransformasi');
+const footer = document.getElementById('footer');
+const tombolNext = document.getElementById('tombolNext');
+const judul = document.getElementById('judul');
+const navbar1 = document.getElementById('navbar1');
+const tunjukNavbar = document.getElementById('tunjukNavbar');
+
 function removeanimateTescuy1() {
   var animateTescuy1 = document.getElementById('animateTescuy1');
   animateTescuy1.classList.remove('hidden');
@@ -349,21 +364,6 @@ window.addEventListener('scroll', function () {
     navbar.classList.remove('border-b-2', 'bg-opacity-90', 'bg-[#FBFDFE]');
   }
 });
-
-const cakapSatu = document.getElementById('cakapSatu');
-const cakapDua = document.getElementById('cakapDua');
-const cakapTiga = document.getElementById('cakapTiga');
-const cakapEmpat = document.getElementById('cakapEmpat');
-const cakapLima = document.getElementById('cakapLima');
-const cakapEnam = document.getElementById('cakapEnam');
-const daftarBesar = document.getElementById('daftarBesar');
-const sidebarToggle = document.getElementById('sidebarToggle');
-const isiTransformasi = document.getElementById('isiTransformasi');
-const footer = document.getElementById('footer');
-const tombolNext = document.getElementById('tombolNext');
-const judul = document.getElementById('judul');
-const navbar1 = document.getElementById('navbar1');
-const tunjukNavbar = document.getElementById('tunjukNavbar');
 
 function okSatu() {
   tunjukNavbar.classList.remove('hidden');
